@@ -1,4 +1,5 @@
 import CopyButton from "@/components/CopyButton";
+import DeleteButton from "@/components/DeleteButton";
 import { supabase } from "@/lib/supabase";
 
 export default async function Dashboard() {
@@ -27,14 +28,12 @@ export default async function Dashboard() {
 							className="border-b border-zinc-800 hover:bg-zinc-900/30"
 						>
 							<td className="px-4 py-3">
-                                <div className="flex items-center gap-2">
-								<span>{url.short_code}</span>
+								<div className="flex items-center gap-2">
+									<span>{url.short_code}</span>
 
-								<CopyButton
-									text={url.short_code}
-								/>
-							</div>
-                            </td>
+									<CopyButton text={url.short_code} />
+								</div>
+							</td>
 
 							<td className="px-4 py-3 max-w-sm truncate">
 								{url.original_url}
@@ -46,6 +45,9 @@ export default async function Dashboard() {
 								{new Date(url.created_at).toLocaleDateString()}
 							</td>
 
+							<td className="px-4 py-3">
+								<DeleteButton id={url.id} />
+							</td>
 						</tr>
 					))}
 				</tbody>
