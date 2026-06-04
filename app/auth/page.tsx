@@ -27,7 +27,8 @@ export default function AuthPage() {
 			return;
 		}
 
-		router.push("/");
+		router.replace("/");
+		router.refresh();
 	}
 	async function handleLogin() {
 		const { error } = await supabase.auth.signInWithPassword({
@@ -40,7 +41,8 @@ export default function AuthPage() {
 			return;
 		}
 
-		router.push("/");
+		router.replace("/");
+		router.refresh();
 	}
 	return (
 		<main className="flex min-h-screen items-center justify-center p-6">
