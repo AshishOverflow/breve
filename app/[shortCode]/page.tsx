@@ -23,5 +23,10 @@ export default async function RedirectPage({
         notFound();
     }
 
+    await supabase
+    .from("urls")
+    .update({ clicks: data.clicks + 1})
+    .eq("short_code", shortCode);
+    
     redirect(data.original_url);
 }
