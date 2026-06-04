@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import CopyButton from "./CopyButton";
 
 const UrlForm = () => {
 	const [url, setUrl] = useState("");
@@ -45,6 +46,8 @@ const UrlForm = () => {
                         <a href = {shortUrl} target="_blank" className="text-blue-600 underline">
                             {shortUrl}
                         </a>
+
+						<CopyButton text={shortUrl} />
                     </div>
                 )
             }
